@@ -7,6 +7,7 @@ import About from "./components/About";
 import Movie from "./components/Movie";
 import Home from "./components/Home";
 import Nav from "./components/Nav";
+import Detail from "./components/Detail";
 
 import './style/App.css';
 
@@ -17,10 +18,13 @@ function App() {
     <Router>
       <div className="App">
         <Nav />
-        <Route path='/' component={Home} />
 
-        <Route path='/about' component={About} />
-        <Route path='/movie' component={Movie} />
+        <Route exact path='/' component={Home} />
+        <Route exact path='/about' component={About} />
+        <Route exact path='/movie' exact component={Movie} />
+        <Route exact path='/movie/:id' component={Detail} />
+
+
 
         {/* <Home />
         <About />
