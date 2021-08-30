@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+//Router는 연결되는 컴포넌트 전체를 감싸준다
+
+
+import About from "./components/About";
+import Movie from "./components/Movie";
+import Home from "./components/Home";
+import Nav from "./components/Nav";
+
+import './style/App.css';
+
+// import {Home, About, Movie, Nav} from "./components"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Nav />
+        <Route path='/' component={Home} />
+
+        <Route path='/about' component={About} />
+        <Route path='/movie' component={Movie} />
+
+        {/* <Home />
+        <About />
+        <Movie /> */}
+      </div>
+    </Router>
+
   );
 }
 
